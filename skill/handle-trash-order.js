@@ -7,7 +7,7 @@ module.exports = class SkillHandleTrashOrder {
         message_to_confirm: {
           type: 'template',
           altText:
-            '出前のメニューは松、竹、梅の3種類になっとりますけどどちらにしましょっ？',
+            '捨てたいゴミの種類は？',
           template: {
             type: 'buttons',
             text: '捨てたいゴミの種類は？',
@@ -35,7 +35,7 @@ module.exports = class SkillHandleTrashOrder {
 
           bot.queue({
             type: 'text',
-            text: `あいよっ！${value}ね。`,
+            text: 'はい！。',
           });
         },
       },
@@ -46,7 +46,7 @@ module.exports = class SkillHandleTrashOrder {
   async finish(bot, event, context) {
     await bot.reply({
       type: 'text',
-      text: `あいよっ。じゃあ${context.confirmed.type}の日を調べますね`,
+      text: `じゃあ${context.confirmed.type}の日を調べますね`,
     });
   }
 };
