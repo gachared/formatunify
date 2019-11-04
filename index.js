@@ -62,8 +62,8 @@ server.post('/bot/webhook', line.middleware(lineConfig), (req, res, next) => {
               && responses[0].queryResult.action === 'handle-trash-order'
             ) {
               let messageText;
-              if (responses[0].queryResult.parameters.fields.menu.stringValue) {
-                messageText = `毎度！${responses[0].queryResult.parameters.fields.menu.stringValue}ね。どちらにお届けしましょ？`;
+              if (responses[0].queryResult.parameters.fields.type.stringValue) {
+                messageText = `毎度！${responses[0].queryResult.parameters.fields.type.stringValue}ね。どちらにお届けしましょ？`;
               } else {
                 messageText = '毎度！ご注文は？';
               }
