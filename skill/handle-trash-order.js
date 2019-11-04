@@ -35,7 +35,7 @@ module.exports = class SkillHandleTrashOrder {
 
           bot.queue({
             type: 'text',
-            text: 'はい！。',
+            text: 'はい！',
           });
         },
       },
