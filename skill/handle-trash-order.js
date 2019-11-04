@@ -10,16 +10,17 @@ module.exports = class SkillHandleTrashOrder {
             '出前のメニューは松、竹、梅の3種類になっとりますけどどちらにしましょっ？',
           template: {
             type: 'buttons',
-            text: 'ご注文は？',
+            text: '捨てたいゴミの種類は？',
             actions: [
               { type: 'message', label: '燃える', text: '燃える' },
               { type: 'message', label: '燃えない', text: '燃えない' },
-              { type: 'message', label: '段ボール', text: '段ボール' },
+                { type: 'message', label: 'ビン・カン', text: 'ビン・カン' },
+                { type: 'message', label: 'ダンボール', text: 'ダンボール' },
             ],
           },
         },
         parser: async (value, bot, event, context) => {
-          if (['燃える', '燃えない', '段ボール'].includes(value)) {
+          if (['燃える', '燃えない', 'ビン・カン', 'ダンボール'].includes(value)) {
             return value;
           }
 
