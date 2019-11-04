@@ -14,13 +14,17 @@ module.exports = class SkillHandleTrashOrder {
             actions: [
               { type: 'message', label: '燃えるゴミ', text: '燃えるゴミ' },
               { type: 'message', label: '燃えないゴミ', text: '燃えないゴミ' },
-                { type: 'message', label: 'ビン・カン', text: 'ビン・カン' },
-                { type: 'message', label: 'ダンボール', text: 'ダンボール' },
+              { type: 'message', label: 'ビン・カン', text: 'ビン・カン' },
+              { type: 'message', label: 'ダンボール', text: 'ダンボール' },
             ],
           },
         },
         parser: async (value, bot, event, context) => {
-          if (['燃えるゴミ', '燃えないゴミ', 'ビン・カン', 'ダンボール'].includes(value)) {
+          if (
+            ['燃えるゴミ', '燃えないゴミ', 'ビン・カン', 'ダンボール'].includes(
+              value,
+            )
+          ) {
             return value;
           }
 
@@ -35,29 +39,14 @@ module.exports = class SkillHandleTrashOrder {
           });
         },
       },
-      address: {
-        message_to_confirm: {
-          type: 'text',
-          text: 'どちらにお届けしましょっ？',
-        },
-        parser: async (value, bot, event, context) => {
-          if (typeof value === 'string') {
-            return value;
-          }
-          if (typeof value === 'object' && value.type === 'location') {
-            return value.address;
-          }
-
-          throw new Error();
-        },
-      },
     };
   }
 
+  // eslint-disable-next-line class-methods-use-this
   async finish(bot, event, context) {
     await bot.reply({
       type: 'text',
-      text: `あいよっ。じゃあ${context.confirmed.type}を30分後くらいに${context.confirmed.address}にお届けしますわ。おおきに。`,
+      text: `あいよっ。じゃあ${context.confirmed.type}の日を調べますね`,
     });
   }
 };
