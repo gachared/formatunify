@@ -4,7 +4,7 @@ const server = require('express')();
 const line = require('@line/bot-sdk');
 // Messaging APIのSDKをインポート
 const dialogflow = require('dialogflow');
-
+console.log(dialogflow);
 // -----------------------------------------------------------------------------
 // パラメータ設定
 const lineConfig = {
@@ -26,6 +26,9 @@ const sessionClient = new dialogflow.SessionsClient({
     private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
   },
 });
+console.log(process.env.GOOGLE_PROJECT_ID);
+console.log(process.env.GOOGLE_CLIENT_EMAIL);
+console.log(process.env.GOOGLE_PRIVATE_KEY);
 
 // -----------------------------------------------------------------------------
 // ルーター設定
