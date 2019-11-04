@@ -38,7 +38,7 @@ server.post('/bot/webhook', line.middleware(lineConfig), (req, res, next) => {
         eventsProcessed.push(
           bot.replyMessage(event.replyToken, {
             type: 'text',
-            text: 'これはこれは',
+            text: 'え？',
           }),
         );
       }
