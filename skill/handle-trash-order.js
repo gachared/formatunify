@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = class SkillHandleDeliveryOrder {
   constructor() {
     this.required_parameter = {
