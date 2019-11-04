@@ -12,15 +12,15 @@ module.exports = class SkillHandleTrashOrder {
             type: 'buttons',
             text: '捨てたいゴミの種類は？',
             actions: [
-              { type: 'message', label: '燃える', text: '燃える' },
-              { type: 'message', label: '燃えない', text: '燃えない' },
+              { type: 'message', label: '燃えるゴミ', text: '燃えるゴミ' },
+              { type: 'message', label: '燃えないゴミ', text: '燃えないゴミ' },
                 { type: 'message', label: 'ビン・カン', text: 'ビン・カン' },
                 { type: 'message', label: 'ダンボール', text: 'ダンボール' },
             ],
           },
         },
         parser: async (value, bot, event, context) => {
-          if (['燃える', '燃えない', 'ビン・カン', 'ダンボール'].includes(value)) {
+          if (['燃えるゴミ', '燃えないゴミ', 'ビン・カン', 'ダンボール'].includes(value)) {
             return value;
           }
 
