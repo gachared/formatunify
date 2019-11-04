@@ -1,7 +1,7 @@
 module.exports = class SkillHandleDeliveryOrder {
   constructor() {
     this.required_parameter = {
-      menu: {
+      type: {
         message_to_confirm: {
           type: 'template',
           altText:
@@ -10,14 +10,14 @@ module.exports = class SkillHandleDeliveryOrder {
             type: 'buttons',
             text: 'ご注文は？',
             actions: [
-              { type: 'message', label: '松', text: '松' },
-              { type: 'message', label: '竹', text: '竹' },
-              { type: 'message', label: '梅', text: '梅' },
+              { type: 'message', label: '燃える', text: '燃える' },
+              { type: 'message', label: '燃えない', text: '燃えない' },
+              { type: 'message', label: '段ボール', text: '段ボール' },
             ],
           },
         },
         parser: async (value, bot, event, context) => {
-          if (['松', '竹', '梅'].includes(value)) {
+          if (['燃える', '燃えない', '段ボール'].includes(value)) {
             return value;
           }
 
@@ -54,7 +54,7 @@ module.exports = class SkillHandleDeliveryOrder {
   async finish(bot, event, context) {
     await bot.reply({
       type: 'text',
-      text: `あいよっ。じゃあ${context.confirmed.menu}を30分後くらいに${context.confirmed.address}にお届けしますわ。おおきに。`,
+      text: `あいよっ。じゃあ${context.confirmed.type}を30分後くらいに${context.confirmed.address}にお届けしますわ。おおきに。`,
     });
   }
 };
