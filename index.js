@@ -63,9 +63,9 @@ server.post('/bot/webhook', line.middleware(lineConfig), (req, res, next) => {
             ) {
               let messageText;
               if (responses[0].queryResult.parameters.fields.type.stringValue) {
-                messageText = `毎度！${responses[0].queryResult.parameters.fields.type.stringValue}ね。どちらにお届けしましょ？`;
+                messageText = `ウム！${responses[0].queryResult.parameters.fields.type.stringValue}ね。いつ捨てるのか調べよう`;
               } else {
-                messageText = '毎度！ご注文は？';
+                messageText = 'どのゴミを捨てたいのかな？';
               }
               return bot.replyMessage(event.replyToken, {
                 type: 'text',
