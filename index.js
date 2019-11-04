@@ -22,8 +22,8 @@ server.use(
     language: 'ja',
     messenger: {
       line: {
-        channel_id: process.env.LINE_BOT_CHANNEL_ID,
-        channel_secret: process.env.LINE_BOT_CHANNEL_SECRET,
+        channel_id: process.env.LINE_CHANNEL_ID,
+        channel_secret: process.env.LINE_CHANNEL_SECRET,
       },
     },
     nlu: {
